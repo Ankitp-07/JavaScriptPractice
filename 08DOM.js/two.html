@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM chai aurcode P02</title>
+</head>
+<body style ="background-color: black; color: aqua;">
+    <div class ="parent">             
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+    
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    console.log(parent);
+    console.log(parent.children);      //the parent class ke div blocks childern kehlauenge , aaur unke andar ka content .innerHTML se print hoga 
+    console.log(parent.children[1].innerHTML);
+
+    //classic for loop chalgea , direct nahi chal oayega parent pe
+
+    for(let i=0;i<parent.children.length;i++){
+        console.log(parent.children[i].innerHTML);
+    }
+    parent.children[1].style.color="orange"
+    console.log(parent.firstElementChild);      //the vry first children of the parent class
+    console.log(parent.lastElementChild);     //the last children of the parent class
+
+    // const dayOne= document.querySelector('.day');  //query selector first wala hi select krta hai sirf 
+    // console.log(dayOne.innerHTML);   
+    // console.log(dayOne.parentElement);//iska parent element bata dega
+    // console.log(dayOne.nextElementSibling);//sibling de dega iska 
+    // //As DOm tree like strucutre banata hai sabka 
+
+    console.log("NODES: ",parent.childNodes);  //childnodes ek complex tree sttructue , 4 child entered hain yaha pe and output=9 , 
+    //nodes:9 isliye aa rha hai hmne parent class aur each child pe line change(line break) kiya hai wo bhi count ho rha hai  as text
+
+
+</script>
+</html>
