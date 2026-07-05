@@ -27,24 +27,25 @@
             const li= document.createElement('li');
             li.appendChild(document.createTextNode(langName))   //ek textNode langName content ka append kiya gya hai 
             document.querySelector('.language').appendChild(li)
-
-
+  
+            //innerHTML browser ko HTML parse karne ke liye bolta hai.
+         }
             // Edit 
           const secondLang  =document.querySelector("li:nth-child(2)")
        //     secondLang.innerHTML="C++"   //yeh second lang item ko edit kr dega 
             const newli= document.createElement('li')
-            new li.textContent="mojo"
+            newli.textContent="mojo"
             secondLang.replaceWith(newli) 
 
 
             // edit : 2 example
             const firstLang  =document.querySelector("li:first-child")
-            firstLang.outerHTML='<li>Golang</li>'
+            firstLang.outerHTML='<li>Golang</li>'   //outerHTML poore element ko replace karta hai
 
 
             //remove
             const lastlang= document.querySelector('li:last-child')
             lastlang.remove()
-         }
+         
 </script>
 </html>
