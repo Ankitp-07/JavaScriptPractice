@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove elements in DOM</title>
+</head>
+<body style="background-color: black;color: brown;">
+    <ul class = "language">
+        <li>JavaScript</li>
+
+    </ul>
+    
+</body>
+<script> 
+    // iss approach me poora tress traverse ho rha hai 
+         function addLanguage(lang){    
+            const li = document.createElement('li');
+            li.innerHTML=`${lang}`    //li item ke andar lang value add ho jayegi //// innerhtml vaigrah use krne se poora tree traverse ho jata hai thatswhy it not opimtised 
+            document.querySelector('.language').appendChild(li)
+         }   
+         addLanguage("python")
+         addLanguage("typescript")
+
+         //more optimised way 
+         function addOptimiselang(langName){
+            const li= document.createElement('li');
+            li.appendChild(document.createTextNode(langName))   //ek textNode langName content ka append kiya gya hai 
+            document.querySelector('.language').appendChild(li)
+
+
+            // Edit 
+          const secondLang  =document.querySelector("li:nth-child(2)")
+       //     secondLang.innerHTML="C++"   //yeh second lang item ko edit kr dega 
+            const newli= document.createElement('li')
+            new li.textContent="mojo"
+            secondLang.replaceWith(newli) 
+
+
+            // edit : 2 example
+            const firstLang  =document.querySelector("li:first-child")
+            firstLang.outerHTML='<li>Golang</li>'
+
+
+            //remove
+            const lastlang= document.querySelector('li:last-child')
+            lastlang.remove()
+         }
+</script>
+</html>
