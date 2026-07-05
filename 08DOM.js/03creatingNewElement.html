@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHai aur code</title>
+</head>
+<body style="background-color: black; color: bisque;">
+    
+</body>
+
+<script>
+   const div = document.createElement('div')    //div create ho jayega 
+   console.log(div);
+   const head1 = document.createElement('h1')   //h1 create ho jayega 
+   console.log(head1);
+
+   div.className="main"
+   div.id=(Math.random()*10+1)
+   div.setAttribute("title","generated title")  //overwrite the title name 
+   div.style.backgroundColor="green"
+   
+   //one method to add content in the div 
+  // div.innerText="chai aur tosh"
+
+   //Another : ek naya textNode bana ke usko add koiya jaye tohh 
+   const addText = document.createTextNode("chai aur code")
+   div.appendChild(addText)  //ye div ke andar iss node ko daal dega 
+   
+
+   //now attaching the div with body of the document which attaches the div with document
+    document.body.appendChild(div)    //ye div ko body ke andar daal dega
+
+
+//abhi tk body khali aaur kch print nahi horha tha aab chai aur code in green display hoga 
+</script>
+</html>
