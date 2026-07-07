@@ -59,14 +59,14 @@
                                 // Bubbling Phase (Bottom → Top)   : default parameter that is false 
 
                 //event bubbling
-        // document.getElementById('images').addEventListener('click',function(e){
-        //     console.log("click inside the ul")
-        // },false)
+        document.getElementById('images').addEventListener('click',function(e){
+            console.log("click inside the ul")
+        },false)
 
-        // document.getElementById('owl').addEventListener('click',function(e){
-        //     console.log("owl clicked !")
-        //     e.stopPropagation();    //propagation nhi hoga sirf yahi print hoga basss
-        // },false)    
+        document.getElementById('owl').addEventListener('click',function(e){
+            console.log("owl clicked !")
+            e.stopPropagation();    //propagation nhi hoga sirf yahi print hoga basss
+        },false)    
          //output  :    //owl clicked !
                         //click inside the ul
 
