@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+
+    //in js , all events run in sequentially 
+    // document.getElementById('owl').onclick=function(){    //on onclick event 
+    //     alert("owl clicked")  //ye wala tarika bhi kam features deta hai 
+    // }
+
+    //another method   : more features and event propagtion vaigrah bhi 
+    //we should use eventListener
+    //document.getElementById('owl').addEventListener('click',function(){},false)   //third parameter false or true likhna hota hai , herre false likhna hai isse accha likho hi mat , but kayi jageh true false likjhne par hi chalta hai application
+        
+    // document.getElementById('owl').addEventListener('click',function(){
+    //         alert("owl clicked")
+    //     })  
+
+     
+        //attachEvent()  
+        //jQuery - oneventListener hota tha 
+
+
+//         document.getElementById('owl').addEventListener('click',function(e){
+// //e is event object herre 
+// console.log(e);     //dher saare events milte hain , browser and environment events  
+
+//         },false)   //false is default here
+        
+  //  things to leaarn   : //type ,timestamp , defaultPrevented  
+                //  target , toElement , srcElement , currentTarget 
+                //clientX, clientY , ScreenX,ScreenY 
+                //altkey , ctrlKey ,shiftKey , KeyCode
+
+
+          //eventPropagation : two context => event bubbling (default i.e false as third parameter  )  and event capturing     
+            //           Jab kisi element par event hota hai (jaise click), to event sirf us element tak limited nahi rehta.
+                      // Wo parent aur child elements ke through travel karta hai.
+                        // Is travel ko Event Propagation kehte hain.
+                        // Iske do phases hote hain:
+                                // Capturing Phase (Top → Bottom)  : Capturing enable karne ke liye third parameter true dete hain.
+                                // Bubbling Phase (Bottom → Top)   : default parameter that is false 
+
+                //event bubbling
+        // document.getElementById('images').addEventListener('click',function(e){
+        //     console.log("click inside the ul")
+        // },false)
+
+        // document.getElementById('owl').addEventListener('click',function(e){
+        //     console.log("owl clicked !")
+        //     e.stopPropagation();    //propagation nhi hoga sirf yahi print hoga basss
+        // },false)    
+         //output  :    //owl clicked !
+                        //click inside the ul
+
+
+
+                //event capturing
+        // document.getElementById('images').addEventListener('click',function(e){
+        //     console.log("click inside the ul")
+        // },true)
+
+        // document.getElementById('owl').addEventListener('click',function(e){
+        //     console.log("owl clicked !")
+            
+        // },true)
+
+        //output :  //click inside the ul
+                    //owl clicked !
+
+
+        // stopPropagation() : Kabhi-kabhi hum nahi chahte event parent tak jaye.tab use karte hain
+        //e.stopPropagation();
+   
+
+
+  
+  //PreventDefault  : JavaScript ka ek method hai jo browser ke default behavior ko rok deta hai.
+// document.getElementById('google').addEventListener('click',function(e){
+//     e.preventDefault();
+//     e.stopPropagation();
+//     console.log("google clicked");
+
+// },false)
+
+
+
+
+//a small project of image removal 
+document.querySelector('#images').addEventListener('click',function(e){
+    //console.log(e.target);  //kon se image se ho rha hai
+   // console.log(e.target.parentNode);  //parent chayiye target ka 
+    //kisi li me click karne par poora sab ek saath gayab hojayega , poora ul ud ja rha thaa
+    
+
+  console.log(e.target.tagName);  //tagname se select krke remove karenge 
+
+   
+   
+   
+   
+   
+   //aab uss photo ko hatana hai 
+    //let removeIt = e.target.parentNode 
+    if(e.target.tagName=='IMG'){            //aab jo img tag rahenge usi ke parentnode pe jaake remove kar skte hain
+        console.log(e.target.id)
+        let removeIt = e.target.parentNode
+      removeIt.remove();
+    }
+     //or
+     //removeIt.parentNode.removeChild(removeIt)
+    
+})
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
