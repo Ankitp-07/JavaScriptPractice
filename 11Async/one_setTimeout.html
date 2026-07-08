@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Async Project </h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout(function(){
+    //     console.log("ankit")  //2 sec do ankit print kar dunga , sirf ek baaar hi hoga
+    // },2000);
+   // setInterval()  =>> jitna time denge ineterval ka usme der baad kam karta rhaga 
+
+   const sayUser= function(){
+    console.log("ankit");
+   }
+   setTimeout(sayUser,2000)       //sayUser → Function ka reference (address) pass karte ho, execute nahi hota. ✅  , 2 sec chalega aur print karege 
+                                  //sayUser() → Function turant execute (call) ho jata hai. ✅,ye turant print kar dega 
+   
+   
+   
+   //changing h1 name 
+  // document.querySelector('h1').innerHTML="best Js series || Async "
+
+   //isi naam ko 2 sec leke karna ho change 
+   const changtext=function(){
+    console.log("Function chal gaya");
+    document.querySelector('h1').innerHTML = "Best JS seeries "
+   }
+    //setTimeout(changtext,2000)
+
+   const changeme =setTimeout(changtext,2000)
+   //clearTimeout +=> can be used to clear orstop  the changing within timerange 
+    const stopBtn=document.querySelector('#stop');
+    stopBtn.addEventListener('click',function(){
+        clearTimeout(changeme)   //ye kaam nahi karega kyuki changtext function ka reference pass nahi hua hai, ye turant execute ho gaya hai 
+        console.log("stopped")
+    })
+</script>
+</html>
