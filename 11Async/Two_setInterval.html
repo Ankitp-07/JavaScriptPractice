@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        chai aur javascript
+    </h1>
+    <button id=" start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    
+    
+        // setInterval(function(){
+        //     console.log("ankit");
+        // },1000)   //har sec ankit print ksrta rhage a
+
+        const sayDate=function(str){  //str as argument recived 
+            console.log(str,Date.now());
+        
+    }
+   const intervalId= setInterval(sayDate,1000,"hlw")  //third parameter  passed 
+
+   clearInterval(intervalId)  ///sab saaf ho jayega  matlab stop ho jayega 
+   
+
+   //ab hum project bana ke isko start and stop buttton me daal denge 
+</script>
+</html>
