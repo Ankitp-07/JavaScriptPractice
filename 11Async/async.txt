@@ -1,0 +1,22 @@
+//js Async code  
+ Default JavaScript
+    -> js is synchronous   : events sequantially exceute karta hai 
+    -> single threaded language 
+
+=>Exceution context : each operation waits for the last ome to complete before executing 
+        -> excute one line of code at a time 
+        -> console log->1
+        -> console log ->2
+ we have Call Stack AND Memory Heap
+
+ =>blocking code vs non blocking code 
+   ||                   ||
+   ||                     >> does not block exceution  for e/g-> read file Async       
+   >>>>  block the flow of program  for e/g-> read file sync
+
+   //kch bhi accha bura nahi hota hai  ,use cases hote hain 
+
+   
+
+
+
