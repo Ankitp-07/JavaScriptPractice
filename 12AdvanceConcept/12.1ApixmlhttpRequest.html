@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: aqua" >
+    /Json formatter se ham  kisi bhi API ke structure  ko easily samjh skte hain
+//yaha ham API ki legacy , jo pahle use hoti thi uske baare me jaanenge 
+
+
+//xmlhttprequest iska istemal karte the 
+
+//0	UNSENT	Client has been created. open() not called yet.
+//1	OPENED	open() has been called.
+//2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+//3	LOADING	Downloading; responseText holds partial data.
+/4	DONE	The operation is complete.
+
+
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+   const xhr= new XMLHttpRequest()  // activestate vaigrah  ek method hai ,iss class ke , iska objecte bannate hain 
+   xhr.open('GET',requestUrl)    //two parameter , one is method andsecond is string 
+   //open() apne aapse call nhi hota hai isko send() se karna padta hai 
+  
+
+//readystate ke diffenrnt stated contonusoly change hote rhta hain ,inko track kete hai
+//aise
+xhr.onreadystatechange=function(){
+    console.log(xhr.readyState);
+
+    //agar hamhe kisi state pe kch kam karna hai tohh
+    if(xhr.readyState===4){
+        //console.log(this.responseText)
+       // const data =this.responseText;
+        //console.log(data.followers)       //undefined de rha hai  kyuki data server se string se aa rha hai so isko convert jarrenge json me 
+
+        
+    const data =JSON.parse(this.responseText)  //converted in json
+    //aab object ban gya 
+        console.log(data.followers)
+    }
+}
+
+ xhr.send()  //open ko call karta hai 
+
+
+
+
+//responseText ek property hai XMLHttpRequest object ki.
+///Isme server se aaya hua response String (text) ke form me store hota hai
+ //Jab server data bhejega, to responseText me kuch aisa hoga:
+
+
+
+ //Assignment: body me object banao , aaur id card banao photo and followers dikhe 
+
+
+
+
+
+
+</script>
+
+</html>
