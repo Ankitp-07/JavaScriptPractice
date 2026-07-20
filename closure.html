@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+<body  style ="background-color: aquamarine;">
+    <button id = "orange">orange</button>
+    <button id = "green">green</button>
+    <script>
+        // function createCounter() {
+        //     let count = 0; // This variable is enclosed in the closure
+
+        //     return function() {
+        //         count++; // Increment the count
+        //         return count; // Return the current count
+        //     };
+        // }
+
+        // const counter = createCounter(); // Create a new counter instance
+
+        // console.log(counter()); // Output: 1
+        // console.log(counter()); // Output: 2
+        // console.log(counter()); // Output: 3
+
+
+        function outer(){
+            let username="ankit"
+            function inner(){
+                let secret = "my123"
+                console.log("innerOne is " , username)
+                console.log(secret);
+            }
+            function inner2(){
+                console.log("innertwoo is " , username);
+                console.log(secret)
+            }
+            inner();
+            inner2();
+            
+        }
+        outer();
+        console.log("Too Outer",username);    //here , username is not defined
+
+        //bado se bacche le skte hain , but bhai bhai chije share nahi kareyenege , par parents ki chije share ho skti hain 
+        
+        function makefunc(){
+            const name = "browse mozilla ";
+            function displayName(){
+                console.log(name);
+            }
+            return displayName;  //yaha pe excutional context return ho jayega functionn and function endss , 
+            //but it not return only displayName() , its return its Outer function as well means its share the whole lexical scope  , that is the closure 
+            //poori memory share hoti h
+        }
+        const myfunc =makefunc();
+        myfunc();  // Output: browse mozilla
+
+    </script>
+
+
+<script>
+   
+// document.getElementById("orange").onclick=function(){
+//     document.body.style.backgroundColor=`orange`
+// }
+// document.getElementById("green").onclick=function(){
+//     document.body.style.backgroundColor=`green`
+// }
+
+
+
+function clickHandler(color){
+    //document.body.style.backgroundColor=`${green}`
+
+    return function(){
+        document.body.style.backgroundColor=`${color}`
+    }
+}
+document.getElementById('orange').onclick=clickHandler("orange")
+document.getElementById('green').onclick=clickHandler("green")
+
+
+
+/*
+Imagine a baby (inner function) is born in a house (outer function). Even after the house is destroyed (outer returns)
+, the baby still remembers the people and memories from that house that’s closure. 
+JavaScript will NOT garbage collect variables that are still referenced even if the function that created them is finished
+
+*/
+</script>
+</body>
+</html>
