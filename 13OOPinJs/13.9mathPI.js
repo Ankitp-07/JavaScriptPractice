@@ -1,3 +1,4 @@
+
 //Object.getOwnPropertyDescriptor(Math)     //object ki hidden chijo ke baare me batati hai  just like here , math 
 
 console.log(Math.PI);
